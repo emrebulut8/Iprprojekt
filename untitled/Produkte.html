@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>produkte</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/anima/anima.css">
+    <link rel="stylesheet" href="plugins/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sliders.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/project-slider.css">
+    <link rel="stylesheet" href="css/blue.css" class="colors">
+    <link rel="shortcut icon" href="img/ico/32.png" sizes="32x32" type="image/png"/>
+    <link rel="apple-touch-icon-precomposed" href="img/ico/60.png" type="image/png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/72.png" type="image/png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/ico/120.png" type="image/png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/ico/152.png" type="image/png"/>
+
+
+</head>
+
+<body id="home">
+<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">
+                <a href="index.html" class="external"> <img id="navlogo" src="img/navlogo-blue.png" alt="microstore" width="122" height="50"></a>
+            </a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+                <li><a href= "Produkte.html "class="external">Produkte</a></li>
+                <li><a href= "ÜberUns.html "class="external">ÜberUns</a></li>
+                <li><a href= "Einkaufswagen.html"class="external">Einkaufswagen</a></li>
+                <li><a href= "Kontakt.html"class="external">Kontakt</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<section id="products" class=" padding-top-bottom" ng-controller="productsController">
+    <div class="container">
+        <header class="section-header text-center anima fade-up">
+            <h2>Produkte</h2>
+        </header>
+    </div>
+    <div class="container">
+        <div id="projects-container" class="row">
+            <article class="design product col-xs-12 col-sm-6 col-md-4 anima fade-up">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <span class="product-icon icon-eye"></span>
+                    <img class="img-responsive project-image" src="img/01.jpg" alt="" >
+                </div>
+                <div class="product-info col-md-12">
+                    <p class="project-price">10 €</p>
+                    <div>
+                        <h4 class="project-title">Blaue Tasse</h4>
+                    </div>
+                </div>
+                <div class="sr-only project-description"  data-oldprice="20 €" data-images="img/01.jpg,img/01.jpg">
+                    <p>Unsere Blaue Tasse.</p>
+                </div>
+            </article>
+
+            <article class="mock-up product col-xs-12 col-sm-6 col-md-4 anima fade-up d1">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <span class="product-icon icon-eye"></span>
+                    <img class="img-responsive project-image" src="img/06.jpg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <p class="project-price">10 €</p>
+                    <div>
+                        <h4 class="project-title">Grüne Tasse</h4>
+                    </div>
+                </div>
+                <div class="sr-only project-description" data-oldprice="20 €" data-images="img/06.jpg,img/06.jpg">
+                    <p>Unsere Grüne Tasse.</p>
+
+                </div>
+            </article>
+
+            <article class=" icons product col-xs-12 col-sm-6 col-md-4 anima fade-up d2">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <span class="product-icon icon-eye"></span>
+                    <img class="img-responsive project-image" src="img/10.jpg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <p class="project-price">10 €</p>
+                    <div>
+                        <h4 class="project-title">Gelbe Tasse</h4>
+                    </div>
+                </div>
+                <div class="sr-only project-description" data-oldprice="20 €" data-images="img/10.jpg,img/10.jpg">
+                    <p>Unsere Gelbe Tasse.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div id="project-modal" class="modal " style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" href="#" data-dismiss="modal" ><i class="icon-close"></i></a>
+                    <div id="project-slider" class="owl-carousel owl-theme" data-navigation="true" data-dots="true" >
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div id="project-sidebar" class="col-md-4 ">
+                                <h2 id="sdbr-title">Flat UI-Kit</h2>
+                                <div>
+                                    <div id="sdbr-price">200</div>
+                                    <div id="sdbr-oldprice">500</div>
+                                </div>
+                            </div>
+                            <div id="project-content" class="col-md-8 ">
+                                <p>Unsere Tassen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="plugins/angular/angular.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/singlepagenav/jquery.singlePageNav.min.js"></script>
+<script type="text/javascript" src="plugins/countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script>
+
+<script type="text/javascript" src="js/hero-slider.js"></script>
+<script type="text/javascript" src="js/project-slider.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
