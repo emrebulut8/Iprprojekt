@@ -59,7 +59,7 @@ $(document).ready(function() {
 		$('#project-modal').on('show.bs.modal', function() {
 			$(this).find('#sdbr-title').text(title);
 			$(this).find('#sdbr-price').text(price);
-			$(this).find('#project-content').html(descr).append('<a id="btn-order" class="btn btn-store btn-right"  href="#">Jetzt Kaufen</a>');
+			$(this).find('#project-content').html(descr).append('<a id="btn-order" class="btn btn-store btn-right"  href="Login.html">Jetzt Kaufen</a>');
 			$(this).find('#project-slider').html(slidesHtml);
 			if (elemDataCont.data('oldprice')) {
 				$(this).find('#sdbr-oldprice').show().text(elemDataCont.data('oldprice'))

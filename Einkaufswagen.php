@@ -1,9 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<?php
+session_start();
+if(!isset($_SESSION['userid'])) {
+    die('Bitte zuerst <a href="Login.php">einloggen</a>');
+}
+
+//Abfrage der Nutzer ID vom Login
+$userid = $_SESSION['userid'];
+
+echo "Hallo User: ".$userid."</br>";
+echo '<a href="logout.php">Ausloggen</a>';
+?>
 <head>
     <meta charset="UTF-8">
     <title>Einkaufswagen</title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/anima/anima.css">
@@ -14,11 +24,7 @@
     <link rel="stylesheet" href="css/hero-slider.css">
     <link rel="stylesheet" href="css/project-slider.css">
     <link rel="stylesheet" href="css/blue.css" class="colors">
-    <link rel="shortcut icon" href="img/ico/32.png" sizes="32x32" type="image/png"/>
-    <link rel="apple-touch-icon-precomposed" href="img/ico/60.png" type="image/png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/72.png" type="image/png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/ico/120.png" type="image/png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/ico/152.png" type="image/png"/>
+
 </head>
 
 <body id="home">
@@ -29,7 +35,7 @@
                 <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#home">
-                <a href="index.html" class="external"> <img id="navlogo" src="img/navlogo-blue.png" alt="microstore" width="122" height="50"></a>
+                <a href="index.html" class="external"> <img id="navlogo" src="img/navlogo-blue.png" alt="Tassen" width="122" height="50"></a>
             </a>
 
         </div>
@@ -37,7 +43,7 @@
             <ul id="navigation" class="nav navbar-nav navbar-right text-center">
                 <li><a href= "Produkte.html "class="external">Produkte</a></li>
                 <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
-                <li><a href= "Einkaufswagen.html"class="external">Einkaufswagen</a></li>
+                <li><a href= "Einkaufswagen.php"class="external">Einkaufswagen</a></li>
                 <li><a href= "Kontakt.html"class="external">Kontakt</a></li>
 
             </ul>

@@ -4,19 +4,24 @@
 require_once 'config.php';
 
 //Database connection
-global $dbc;
+$email = $mysqli->real_escape_string($_POST['email']);
+$password = $_POST['password'];
 
-$stmt = $dbc->prepare("SELECT username,password from dca_users WHERE
-username='".$_POST['username']."' && password='".  md5($_POST['password'])."'");
+// $result = $mysqli->query("SELECT * FROM users WHERE email = '$email'");
 
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->bind_param('s', $email);
 $stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
 
-$row = $stmt->rowCount();
+$user = $result->fetch_assoc();
 
-if ($row > 0){
-echo 'correct';
-} else{
-echo 'wrong';
+if ($user != null && $user['password'] == $password) {
+    $_SESSION['userid'] = $user['name'];
+    die('Login erfolgreich. Weiter zu <a href="Einkaufswagen.php">Warenkorb</a>');
+} else {
+    $errorMessage = "Username oder Passwort war ungültig!<br>";
 }
 
 ?>

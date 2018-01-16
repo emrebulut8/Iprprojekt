@@ -71,11 +71,6 @@ $(document).ready(function() {
 	var date = new Date();
 	var res = date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
 	
-	$('#countdown').countdown(res, function(event) {
-	  $(this).text(
-		event.strftime('%-d days %H:%M:%S')
-	  );
-	});
 
 
 	$('.smooth-scroll').click(function() {
