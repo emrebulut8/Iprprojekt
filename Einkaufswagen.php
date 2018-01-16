@@ -104,6 +104,7 @@ if(isset($_GET["action"]))
 
 <br/>
 <div class="container" >
+    <br />
     <h3 align="center">Shoppingcart</h3><br />
 
     <?php
