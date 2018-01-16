@@ -1,14 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['userid'])) {
-    die('Bitte zuerst <a href="Login.html">einloggen</a>');
-}
 
-//Abfrage der Nutzer ID vom Login
-$userid = $_SESSION['userid'];
-
-echo "Hallo User: ".$userid."</br>";
-echo '<a href="logout.php">Ausloggen</a>';
+//if(!isset($_SESSION['userid'])) {
+//    die('Bitte zuerst <a href="Login.php">einloggen</a>');
+//}
 
 
 $connect = mysqli_connect("193.196.143.168", "mm7w_62fuch1bif", "bla12345", "mm7w_62fuch1bif");
@@ -108,7 +103,7 @@ if(isset($_GET["action"]))
 </div>
 
 <br/>
-<div class="container" style="width:700px;">
+<div class="container" >
     <h3 align="center">Shoppingcart</h3><br />
 
     <?php

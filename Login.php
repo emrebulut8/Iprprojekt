@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/userauth.php';
+require_once __DIR__ . '/config.php';
 ?>
 <head>
     <meta charset="UTF-8">
