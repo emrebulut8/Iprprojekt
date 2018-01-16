@@ -1,17 +1,9 @@
 <?php
-
-
-
 session_start();
-if(!isset($_SESSION['userid'])) {
-    die('Bitte zuerst <a href="Login.php">einloggen</a>');
-}
 
-//Abfrage der Nutzer ID vom Login
-$userid = $_SESSION['userid'];
-
-echo "Hallo User: ".$userid;
-
+//if(!isset($_SESSION['userid'])) {
+//    die('Bitte zuerst <a href="Login.php">einloggen</a>');
+//}
 
 
 $connect = mysqli_connect("193.196.143.168", "mm7w_62fuch1bif", "bla12345", "mm7w_62fuch1bif");
@@ -26,7 +18,7 @@ if(isset($_POST["add_to_cart"]))
             $item_array = array(
                 'item_id'               =>     $_GET["id"],
                 'item_name'               =>     $_POST["hidden_name"],
-                'item_price'          =>     $_POST["hidden_price"],
+                'item_preis'          =>     $_POST["hidden_preis"],
                 'item_quantity'          =>     $_POST["quantity"]
             );
             $_SESSION["shopping_cart"][$count] = $item_array;
@@ -42,7 +34,7 @@ if(isset($_POST["add_to_cart"]))
         $item_array = array(
             'item_id'               =>     $_GET["id"],
             'item_name'               =>     $_POST["hidden_name"],
-            'item_price'          =>     $_POST["hidden_price"],
+            'item_preis'          =>     $_POST["hidden_preis"],
             'item_quantity'          =>     $_POST["quantity"]
         );
         $_SESSION["shopping_cart"][0] = $item_array;
@@ -112,11 +104,10 @@ if(isset($_GET["action"]))
 
 <br/>
 <div class="container" >
-<br />
     <h3 align="center">Shoppingcart</h3><br />
 
     <?php
-    $query = "SELECT * FROM produkte ORDER BY id ASC";
+    $query = "SELECT * FROM tbl_product ORDER BY id ASC";
     $result = mysqli_query($connect, $query);
     if(mysqli_num_rows($result) > 0)
     {
@@ -129,10 +120,10 @@ if(isset($_GET["action"]))
                     <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
                         <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                         <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-                        <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
+                        <h4 class="text-danger">$ <?php echo $row["preis"]; ?></h4>
                         <input type="text" name="quantity" class="form-control" value="1" />
                         <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
-                        <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+                        <input type="hidden" name="hidden_preis" value="<?php echo $row["preis"]; ?>" />
                         <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
                     </div>
                 </form>
@@ -146,10 +137,10 @@ if(isset($_GET["action"]))
             <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
                 <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                 <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-                <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
+                <h4 class="text-danger">$ <?php echo $row["preis"]; ?></h4>
                 <input type="text" name="quantity" class="form-control" value="1" />
                 <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
-                <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+                <input type="hidden" name="hidden_preis" value="<?php echo $row["preis"]; ?>" />
                 <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
             </div>
         </form>
@@ -161,10 +152,10 @@ if(isset($_GET["action"]))
             <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
                 <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                 <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-                <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
+                <h4 class="text-danger">$ <?php echo $row["preis"]; ?></h4>
                 <input type="text" name="quantity" class="form-control" value="1" />
                 <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
-                <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+                <input type="hidden" name="hidden_preis" value="<?php echo $row["preis"]; ?>" />
                 <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
             </div>
         </form>
@@ -180,10 +171,10 @@ if(isset($_GET["action"]))
         <table class="table table-bordered">
             <tr>
                 <th width="40%">Item Name</th>
-                <th width="10%">Quantity</th>
-                <th width="20%">Price</th>
+                <th width="10%">Anzahl</th>
+                <th width="20%">Preis</th>
                 <th width="15%">Total</th>
-                <th width="5%">Action</th>
+                <th width="5%">Aktion</th>
             </tr>
             <?php
             if(!empty($_SESSION["shopping_cart"]))
@@ -195,12 +186,12 @@ if(isset($_GET["action"]))
             <tr>
                 <td><?php echo $values["item_name"]; ?></td>
                 <td><?php echo $values["item_quantity"]; ?></td>
-                <td>$ <?php echo $values["item_price"]; ?></td>
-                <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
+                <td>$ <?php echo $values["item_preis"]; ?></td>
+                <td>$ <?php echo number_format($values["item_quantity"] * $values["item_preis"], 2); ?></td>
                 <td><a href="Einkaufswagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
             </tr>
             <?php
-            $total = $total + ($values["item_quantity"] * $values["item_price"]);
+            $total = $total + ($values["item_quantity"] * $values["item_preis"]);
             }
             ?>
             <tr>
@@ -214,7 +205,6 @@ if(isset($_GET["action"]))
         </table>
     </div>
 </div>
-
 <br />
 
 
@@ -230,5 +220,6 @@ if(isset($_GET["action"]))
 <script type="text/javascript" src="js/hero-slider.js"></script>
 <script type="text/javascript" src="js/project-slider.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 
 </html>
