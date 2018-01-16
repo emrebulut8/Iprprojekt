@@ -2,8 +2,8 @@
 angular.module('postLogin', [])
     .controller('PostController', ['$scope', '$http', function($scope, $http) {
         this.postForm = function() {
-            var encodedString = 'username=' +
-                encodeURIComponent(this.inputData.username) +
+            var encodedString = 'email=' +
+                encodeURIComponent(this.inputData.email) +
                 '&password=' +
                 encodeURIComponent(this.inputData.password);
 
@@ -17,7 +17,7 @@ angular.module('postLogin', [])
                 .success(function(data) {
                     //console.log(data);
                     if ( data.trim() === 'correct') {
-                        window.location.href = 'welcome.php';
+                        window.location.href = 'Einkaufswagen.php';
                     } else {
                         $scope.errorMsg = "Username und Password stimmen nicht überein";
                     }

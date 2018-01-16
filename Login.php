@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once __DIR__ . '/userauth.php';
+?>
 <head>
     <meta charset="UTF-8">
     <title>Einkaufswagen</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/anima/anima.css">
     <link rel="stylesheet" href="plugins/owlcarousel/owl.carousel.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/style.css">
@@ -17,6 +17,11 @@
 </head>
 
 <body id="home">
+<?php
+  if(isset($errorMessage)) {
+   echo $errorMessage;
+  }
+  ?>
         <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -46,7 +51,7 @@
             </div>
             <div class="panel-body" >
                 <form action="?login=1" class="form-horizontal" method="POST">
-                    <div class="panel-info text-center">Username</div>
+                    <div class="panel-info text-center">Email</div>
                     <div class="input-group">
                         <span class="input-group-addon"><i></i></span>
                         <input type="email" name="email" class="form-control" required autofocus maxlength="250"/>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['userid'])) {
-    die('Bitte zuerst <a href="Login.php">einloggen</a>');
+    die('Bitte zuerst <a href="Login.html">einloggen</a>');
 }
 
 //Abfrage der Nutzer ID vom Login
@@ -31,7 +31,7 @@ if(isset($_POST["add_to_cart"]))
         else
         {
             echo '<script>alert("Item Already Added")</script>';
-            echo '<script>window.location="index.html"</script>';
+            echo '<script>window.location="Einkaufswagen.php"</script>';
         }
     }
     else
@@ -55,7 +55,7 @@ if(isset($_GET["action"]))
             {
                 unset($_SESSION["shopping_cart"][$keys]);
                 echo '<script>alert("Item Removed")</script>';
-                echo '<script>window.location="index.html"</script>';
+                echo '<script>window.location="Einkaufswagen.php"</script>';
             }
         }
     }
@@ -80,13 +80,6 @@ if(isset($_GET["action"]))
     <link rel="stylesheet" href="css/project-slider.css">
     <link rel="stylesheet" href="css/blue.css" class="colors">
 
-    <!-- Shopping Cart links / scripts -->
-
-    <title>Webslesson Tutorial | Simple PHP Mysql Shopping Cart</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 </head>
 
 <body id="home">
@@ -103,10 +96,10 @@ if(isset($_GET["action"]))
         </div>
         <div class="collapse navbar-collapse">
             <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-                <li><a href= "Produkte.html "class="external">Produkte</a></li>
-                <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
-                <li><a href= "Einkaufswagen.php"class="external">Einkaufswagen</a></li>
-                <li><a href= "Kontakt.html"class="external">Kontakt</a></li>
+                <li><a href= "Produkte.html " class="external">Produkte</a></li>
+                <li><a href= "UeberUns.html " class="external">ÜberUns</a></li>
+                <li><a href= "Einkaufswagen.php" class="external">Einkaufswagen</a></li>
+                <li><a href= "Kontakt.html" class="external">Kontakt</a></li>
 
             </ul>
         </div>
@@ -128,7 +121,7 @@ if(isset($_GET["action"]))
             ?>
 
             <div class="col-md-4">
-                <form method="post" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
+                <form method="post" action="Einkaufswagen.php?action=add&id=<?php echo $row["id"]; ?>">
                     <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
                         <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                         <h4 class="text-info"><?php echo $row["name"]; ?></h4>
@@ -145,7 +138,7 @@ if(isset($_GET["action"]))
     }
     ?>
     <div class="col-md-4">
-        <form method="post" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
+        <form method="post" action="Einkaufswagen.php?action=add&id=<?php echo $row["id"]; ?>">
             <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
                 <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                 <h4 class="text-info"><?php echo $row["name"]; ?></h4>
@@ -160,7 +153,7 @@ if(isset($_GET["action"]))
 
 
     <div class="col-md-4">
-        <form method="post" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
+        <form method="post" action="Einkaufswagen.php?action=add&id=<?php echo $row["id"]; ?>">
             <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
                 <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                 <h4 class="text-info"><?php echo $row["name"]; ?></h4>
@@ -200,7 +193,7 @@ if(isset($_GET["action"]))
                 <td><?php echo $values["item_quantity"]; ?></td>
                 <td>$ <?php echo $values["item_price"]; ?></td>
                 <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
-                <td><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
+                <td><a href="Einkaufswagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
             </tr>
             <?php
             $total = $total + ($values["item_quantity"] * $values["item_price"]);
