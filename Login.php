@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once __DIR__ . '/config.php';
+
 ?>
 <head>
     <meta charset="UTF-8">
@@ -88,7 +90,6 @@ require_once __DIR__ . '/config.php';
 <script type="text/javascript" src="js/hero-slider.js"></script>
 <script type="text/javascript" src="js/project-slider.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
 
 </body>
 </html>

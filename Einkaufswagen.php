@@ -2,7 +2,7 @@
 session_start();
 
 //if(!isset($_SESSION['userid'])) {
-//    die('Bitte zuerst <a href="Login.php">einloggen</a>');
+  //  die('Bitte zuerst <a href="Login.php">einloggen</a>');
 //}
 
 
@@ -104,10 +104,11 @@ if(isset($_GET["action"]))
 
 <br/>
 <div class="container" >
+<br />
     <h3 align="center">Shoppingcart</h3><br />
 
     <?php
-    $query = "SELECT * FROM tbl_product ORDER BY id ASC";
+    $query = "SELECT * FROM produkte ORDER BY id ASC";
     $result = mysqli_query($connect, $query);
     if(mysqli_num_rows($result) > 0)
     {
@@ -205,6 +206,7 @@ if(isset($_GET["action"]))
         </table>
     </div>
 </div>
+
 <br />
 
 
@@ -220,6 +222,5 @@ if(isset($_GET["action"]))
 <script type="text/javascript" src="js/hero-slider.js"></script>
 <script type="text/javascript" src="js/project-slider.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
 
 </html>
