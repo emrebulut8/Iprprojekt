@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['userid'])) {
-/   die('Bitte zuerst <a href="Login.php">einloggen</a>');
+  die('Bitte zuerst <a href="Login.php">einloggen</a>');
 }
 
 
