@@ -25,7 +25,7 @@ if(isset($_GET['login'])) {
     $user = $result->fetch_assoc();
 
     if ($user != null && $user['password'] == $password) {
-        $_SESSION['userid'] = $user['name'];
+        $_SESSION['userid'] = $user['id'];
         die('Login erfolgreich. Weiter zu <a href="Einkaufswagen.php">Warenkorb</a>');
     } else {
         $errorMessage = "Username oder Passwort war ungültig!<br>";
