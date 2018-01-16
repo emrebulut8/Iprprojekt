@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-//if(!isset($_SESSION['userid'])) {
-//    die('Bitte zuerst <a href="Login.php">einloggen</a>');
-//}
+if(!isset($_SESSION['userid'])) {
+/   die('Bitte zuerst <a href="Login.php">einloggen</a>');
+}
 
 
 $connect = mysqli_connect("193.196.143.168", "mm7w_62fuch1bif", "bla12345", "mm7w_62fuch1bif");
