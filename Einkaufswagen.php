@@ -107,7 +107,7 @@ if(isset($_GET["action"]))
     <h3 align="center">Shoppingcart</h3><br />
 
     <?php
-    $query = "SELECT * FROM tbl_product ORDER BY id ASC";
+    $query = "SELECT * FROM produkte ORDER BY id ASC";
     $result = mysqli_query($connect, $query);
     if(mysqli_num_rows($result) > 0)
     {
