@@ -46,8 +46,7 @@
                 <li><a href= "Produkte.html " class="external"><i class="fa fa-coffee" aria-hidden="true"></i> Produkte</a></li>
                 <li><a href= "Einkaufswagen.php"class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
                 <li><a href= "Kontakt.html"class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
-                <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" ng-show= "eingelogt" aria-hidden="true"></i> Login</a></li>
-                <li><a href= "logout.php"class="external"><i class="fa fa-sign-in" ng-show= "!eingelogt" aria-hidden="true"></i> Logout</a></li>
+                <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
                 <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
             </ul>
         </div>
@@ -62,30 +61,35 @@
             <h2>Produkte</h2>
         </header>
     </div>
+    
+    
     <div class="container">
-        <div id="projects-container" class="row">
-            <article class="design product col-xs-12 col-sm-6 col-md-4 fade-up">
+        <div id="projects-container">
+           <div class="row">
+            <article class="design product col-xs-12 col-sm-6 col-md-4 anima fade-up">
                 <div class="img-box">
                     <div class="hover-mask2"></div>
                     <span class="product-icon icon-eye"></span>
-                    <img class="img-responsive project-image" src="img/01.jpg" width="300" height="250" alt="" >
+                    <img class="img-responsive project-image" src="img/01.jpg" width="230" height="250" alt="" >
                 </div>
                 <div class="product-info col-md-12">
                     <p class="project-price">10 €</p>
                     <div>
                         <h4 class="project-title">Blaue Tasse</h4>
                     </div>
+                
                 </div>
-                <div class="project-description"  data-oldprice="20 €" data-images="img/01.jpg,img/01.jpg">
+                
+                <div class="sr-only project-description"  data-oldprice="20 €" data-images="img/01.jpg,img/01.jpg">
                     <p>Unsere Blaue Tasse.</p>
                 </div>
             </article>
 
-            <article class="mock-up product col-xs-12 col-sm-6 col-md-4 fade-up ">
+            <article class="mock-up product col-xs-12 col-sm-6 col-md-4 anima fade-up d1">
                 <div class="img-box">
                     <div class="hover-mask2"></div>
                     <span class="product-icon icon-eye"></span>
-                    <img class="img-responsive project-image" src="img/06.jpg" width="300" height="300" alt="">
+                    <img class="img-responsive project-image" src="img/06.jpg" width="230" height="250" alt="">
                 </div>
                 <div class="product-info col-md-12">
                     <p class="project-price">10 €</p>
@@ -93,16 +97,16 @@
                         <h4 class="project-title">Grüne Tasse</h4>
                     </div>
                 </div>
-                <div class="project-description" data-oldprice="20 €" data-images="img/06.jpg,img/06.jpg">
+                <div class="sr-only project-description" data-oldprice="20 €" data-images="img/06.jpg,img/06.jpg">
                     <p>Unsere Grüne Tasse.</p>
                 </div>
             </article>
 
-            <article class=" icons product col-xs-12 col-sm-6 col-md-4 fade-up ">
+            <article class=" icons product col-xs-12 col-sm-6 col-md-4 anima fade-up d2">
                 <div class="img-box">
                     <div class="hover-mask2"></div>
                     <span class="product-icon icon-eye"></span>
-                    <img class="img-responsive project-image" src="img/10.jpg" width="300" height="300" alt="">
+                    <img class="img-responsive project-image" src="img/10.jpg" width="230" height="250" alt="">
                 </div>
                 <div class="product-info col-md-12">
                     <p class="project-price">10 €</p>
@@ -110,12 +114,14 @@
                         <h4 class="project-title">Gelbe Tasse</h4>
                     </div>
                 </div>
-                <div class="project-description" data-oldprice="20 €" data-images="img/10.jpg,img/10.jpg">
+                <div class="sr-only project-description" data-oldprice="20 €" data-images="img/10.jpg,img/10.jpg">
                     <p>Unsere Gelbe Tasse.</p>
                 </div>
             </article>
+            </div>
         </div>
     </div>
+    
 
     <div id="project-modal" class="modal " style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
