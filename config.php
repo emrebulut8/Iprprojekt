@@ -32,11 +32,6 @@ if(isset($_GET['login'])) {
     }
 }
 if(!isset($_SESSION['userid'])) {
-    $eingelogt = true;
-    }
-else{
-    $eingelogt = false;
+    ');
 }
-
-
 ?>

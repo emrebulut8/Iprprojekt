@@ -121,8 +121,7 @@ if(isset($_GET["action"]))
                 <li><a href= "Produkte.html " class="external"><i class="fa fa-coffee" aria-hidden="true"></i> Produkte</a></li>
                 <li><a href= "Einkaufswagen.php" class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
                 <li><a href= "Kontakt.html" class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
-                <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" ng-show= "eingelogt" aria-hidden="true"></i> Login</a></li>
-                <li><a href= "logout.php"class="external"><i class="fa fa-sign-in" ng-show= "!eingelogt" aria-hidden="true"></i> Logout</a></li>
+                <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
                 <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
 
             </ul>
