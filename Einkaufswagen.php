@@ -61,10 +61,11 @@ if(isset($_GET["action"]))
 <html lang="en">
 <meta charset="UTF-8">
 
-
 <head>
     <meta charset="UTF-8">
     <title>Einkaufswagen</title>
+    
+    <!-- STYLESHEETS -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/owlcarousel/owl.carousel.css">
@@ -74,6 +75,18 @@ if(isset($_GET["action"]))
     <link rel="stylesheet" href="css/hero-slider.css">
     <link rel="stylesheet" href="css/project-slider.css">
     <link rel="stylesheet" href="css/blue.css" class="colors">
+    
+    <!--SCRYPTS -->
+    <script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="plugins/angular/angular.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script>
+    <script type="text/javascript" src="js/hero-slider.js"></script>
+    <script type="text/javascript" src="js/project-slider.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
 </head>
 
@@ -206,21 +219,7 @@ if(isset($_GET["action"]))
         </table>
     </div>
 </div>
-<br />
+<br/>
 
-
-
-
-<script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="plugins/angular/angular.min.js"></script>
-<script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script>
-
-<script type="text/javascript" src="js/hero-slider.js"></script>
-<script type="text/javascript" src="js/project-slider.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-
+</body>
 </html>
