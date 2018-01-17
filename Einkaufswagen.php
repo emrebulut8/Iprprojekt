@@ -232,5 +232,5 @@ if(isset($_GET["action"]))
 <script type="text/javascript" src="js/project-slider.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-
+    </body>
 </html>
