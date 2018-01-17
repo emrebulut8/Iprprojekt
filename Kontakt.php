@@ -1,3 +1,13 @@
+<?php
+if(isset($_POST['sent'])){
+
+
+
+    echo "Danke für ihre Meinung.";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +54,7 @@
             <ul id="navigation" class="nav navbar-nav navbar-right text-center">
                 <li><a href= "Produkte.html " class="external"><i class="fa fa-coffee" aria-hidden="true"></i> Produkte</a></li>
                 <li><a href= "Einkaufswagen.php"class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
-                <li><a href= "Kontakt.html"class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
+                <li><a href= "Kontakt.php" class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
                 <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
                 <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
 
@@ -91,7 +101,7 @@
                         </div>
                     </div>
                     <p>
-                        <button name="submit" type="submit" class="btn btn-store btn-block">Nachricht Senden</button></p>
+                        <button name="sent" type="submit" class="btn btn-store btn-block">Nachricht Senden</button></p>
                     <input type="hidden" name="submitted" id="submitted3" value="true">
                 </div>
             </div>
