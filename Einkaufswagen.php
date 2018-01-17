@@ -36,17 +36,19 @@ if(isset($_POST["add_to_mysql"]))
     if(isset($_SESSION["shopping_cart"]))
 
     {
-        $values[] = newrelic_add_custom_parameter();
+        //%orderid = vorherigeorderid +1;
+        $orderid = 1;
         foreach($_SESSION["shopping_cart"] as $keys => $count)
         {
-            $id = mysqli_real_escape_string($connect, $value[0]);
-            $quanity = mysqli_real_escape_string($connect, $value[2]);
-            $values[] = "('$id', '$quanity')";
+            $id = 'item_id';
+            $quanity = 'item_quanity';
+            $values[] = "('$orderid', $id', '$quanity')";
+            $sql = "INSERT INTO bestellungen (orderid, id, quantity ) VALUES ";
+            $sql .= implode(', ', $values[]);
+            mysqli_query($connect, $sql);
         }
-        $bestellungsid = +1;
-        $sql = "INSERT INTO bestellungen (id, quantity ) VALUES ";
-        $sql .= implode(', ', $values[]);
-        mysqli_query($connect, $sql);
+
+
 
 
     }
