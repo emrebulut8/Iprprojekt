@@ -76,17 +76,6 @@ $(document).ready(function() {
 		initSlider();
 	});
 
-	$('#project-modal').on('hidden.bs.modal', function() {
-		$('#project-slider').removeClass('big-slider');
-		$('#project-slider').trigger('destroy.owl.carousel');
-	});
 
-	$('#project-modal').on( 'click', '#btn-order',function () {
-		$('#project-modal').modal('hide');
-		$('#project-slider').trigger('destroy.owl.carousel');
-		var aTag = $("section[id='orderform']");
-		$('html,body').animate({scrollTop: aTag.offset().top - 60},'slow');
-		return false;
-	});
 
 });
