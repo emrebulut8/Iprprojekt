@@ -15,6 +15,7 @@ require_once __DIR__ . '/config.php';
     <link rel="stylesheet" href="css/hero-slider.css">
     <link rel="stylesheet" href="css/project-slider.css">
     <link rel="stylesheet" href="css/blue.css" class="colors">
+    <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css">
 
 </head>
 
@@ -39,8 +40,8 @@ require_once __DIR__ . '/config.php';
                     <ul id="navigation" class="nav navbar-nav navbar-right text-center">
                         <li><a href= "Produkte.html "class="external">Produkte</a></li>
                         <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
-                        <li><a href= "Einkaufswagen.php"class="external">Einkaufswagen</a></li>
-                        <li><a href= "Kontakt.html"class="external">Kontakt</a></li>
+                        <li><a href= "Einkaufswagen.php"class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Einkaufswagen</a></li>
+                        <li><a href= "Kontakt.html"class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i>Kontakt</a></li>
 
                     </ul>
                 </div>
