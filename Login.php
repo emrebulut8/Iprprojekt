@@ -56,7 +56,7 @@ require_once __DIR__ . '/config.php';
                 <ul id="navigation" class="nav navbar-nav navbar-right text-center">
                      <li><a href= "Produkte.html "class="external"><i class="fa fa-coffee" aria-hidden="true"></i>Produkte</a></li>
                      <li><a href= "Einkaufswagen.php"class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Einkaufswagen</a></li>
-                     <li><a href= "Kontakt.html"class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i>Kontakt</a></li>
+                     <li><a href= "Kontakt.html" class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
                      <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
 
                 </ul>

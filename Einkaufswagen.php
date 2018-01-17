@@ -45,21 +45,16 @@ if(isset($_POST["add_to_mysql"]))
     if(isset($_SESSION["shopping_cart"]))
     {
 
-                if(is_array($array))
-                {
-                    $values = array();
-                    foreach($array as $row => $value)
-                    {
-                        $id = mysqli_real_escape_string($connect, $value[0]);
-                        $hidden_name = mysqli_real_escape_string($connect, $value[1]);
-                        $hidden_preis = mysqli_real_escape_string($connect, $value[2]);
-                        $hidden_quanity = mysqli_real_escape_string($connect, $value[2]);
-                        $values[] = "('$id', '$hidden_name', '$hidden_preis', '$hidden_quanity')";
-                    }
-                    $sql = "INSERT INTO bestellungen(id, hidden_name, hidden_preis, quantity ) VALUES ";
-                    $sql .= implode(', ', $values);
-                    mysqli_query($connect, $sql);
-                }
+        $orderid = 1;
+        foreach($_SESSION["shopping_cart"] as $keys => $count)
+        {
+            $id = 'item_id';
+            $quanity = 'item_quanity';
+            $values[] = "('$orderid', $id', '$quanity')";
+            $sql = "INSERT INTO bestellungen (orderid, id, quantity ) VALUES ($orderid, $id, $quanity)";
+
+            mysqli_query($connect, $sql);
+        }
 
 
     }
@@ -181,7 +176,7 @@ if(isset($_GET["action"]))
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
-                <th width="40%">Item Name</th>
+                <th width="40%">Name</th>
                 <th width="10%">Anzahl</th>
                 <th width="20%">Preis</th>
                 <th width="15%">Total</th>
