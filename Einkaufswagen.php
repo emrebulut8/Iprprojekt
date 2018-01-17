@@ -1,13 +1,12 @@
 <?php
 session_start();
-require_once __DIR__ . '/config.php';
 
 if(!isset($_SESSION['userid'])) {
   die('Bitte zuerst <a href="Login.php">einloggen</a>');
 }
 
 
-
+$connect = mysqli_connect("193.196.143.168", "mm7w_62fuch1bif", "bla12345", "mm7w_62fuch1bif");
 if(isset($_POST["add_to_cart"]))
 {
     if(isset($_SESSION["shopping_cart"]))
@@ -19,7 +18,7 @@ if(isset($_POST["add_to_cart"]))
             $item_array = array(
                 'item_id'               =>     $_GET["id"],
                 'item_name'               =>     $_POST["hidden_name"],
-                'item_preis'          =>     $_POST["hidden_preis"],
+                'item_price'          =>     $_POST["hidden_price"],
                 'item_quantity'          =>     $_POST["quantity"]
             );
             $_SESSION["shopping_cart"][$count] = $item_array;
@@ -30,25 +29,37 @@ if(isset($_POST["add_to_cart"]))
             echo '<script>window.location="Einkaufswagen.php"</script>';
         }
     }
+    else
+    {
+        $item_array = array(
+            'item_id'               =>     $_GET["id"],
+            'item_name'               =>     $_POST["hidden_name"],
+            'item_price'          =>     $_POST["hidden_price"],
+            'item_quantity'          =>     $_POST["quantity"]
+        );
+        $_SESSION["shopping_cart"][0] = $item_array;
+    }
 }
 if(isset($_POST["add_to_mysql"]))
 {
     if(isset($_SESSION["shopping_cart"]))
-
     {
-        //%orderid = vorherigeorderid +1;
-        $orderid = 1;
-        foreach($_SESSION["shopping_cart"] as $keys => $count)
-        {
-            $id = 'item_id';
-            $quanity = 'item_quanity';
-            $values[] = "('$orderid', $id', '$quanity')";
-            $sql = "INSERT INTO bestellungen (orderid, id, quantity ) VALUES ";
-            $sql .= implode(', ', $values[]);
-            mysqli_query($connect, $sql);
-        }
 
-
+                if(is_array($array))
+                {
+                    $values = array();
+                    foreach($array as $row => $value)
+                    {
+                        $id = mysqli_real_escape_string($connect, $value[0]);
+                        $hidden_name = mysqli_real_escape_string($connect, $value[1]);
+                        $hidden_preis = mysqli_real_escape_string($connect, $value[2]);
+                        $hidden_quanity = mysqli_real_escape_string($connect, $value[2]);
+                        $values[] = "('$id', '$hidden_name', '$hidden_preis', '$hidden_quanity')";
+                    }
+                    $sql = "INSERT INTO bestellungen(id, hidden_name, hidden_preis, quantity ) VALUES ";
+                    $sql .= implode(', ', $values);
+                    mysqli_query($connect, $sql);
+                }
 
 
     }
@@ -74,10 +85,11 @@ if(isset($_GET["action"]))
 <html lang="en">
 <meta charset="UTF-8">
 
+
 <head>
     <meta charset="UTF-8">
     <title>Einkaufswagen</title>
-    
+
     <!-- STYLESHEETS -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -89,7 +101,7 @@ if(isset($_GET["action"]))
     <link rel="stylesheet" href="css/project-slider.css">
     <link rel="stylesheet" href="css/blue.css" class="colors">
     <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css">
-    
+
     <!--SCRYPTS -->
     <script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
@@ -134,8 +146,7 @@ if(isset($_GET["action"]))
 <br/>
 <div class="container" >
     <br />
-    <br />
-    <h3 align="center">Shoppingcart</h3><br />
+    <h3 align="center">Einkaufswagen</h3><br />
 
     <?php
     $query = "SELECT * FROM produkte ORDER BY id ASC";
@@ -163,41 +174,11 @@ if(isset($_GET["action"]))
         }
     }
     ?>
-    <div class="col-md-4">
-        <form method="post" action="Einkaufswagen.php?action=add&id=<?php echo $row["id"]; ?>">
-            <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-                <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
-                <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-                <h4 class="text-danger">$ <?php echo $row["preis"]; ?></h4>
-                <input type="text" name="quantity" class="form-control" value="1" />
-                <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
-                <input type="hidden" name="hidden_preis" value="<?php echo $row["preis"]; ?>" />
-                <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
-            </div>
-        </form>
-    </div>
-
-
-    <div class="col-md-4">
-        <form method="post" action="Einkaufswagen.php?action=add&id=<?php echo $row["id"]; ?>">
-            <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-                <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
-                <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-                <h4 class="text-danger">$ <?php echo $row["preis"]; ?></h4>
-                <input type="text" name="quantity" class="form-control" value="1" />
-                <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
-                <input type="hidden" name="hidden_preis" value="<?php echo $row["preis"]; ?>" />
-                <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
-            </div>
-        </form>
-    </div>
-
-
 
     <div style="clear:both"></div>
 
     <br/>
-    <h3>Order Details</h3>
+    <h3>Warenkorb</h3>
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
@@ -228,7 +209,7 @@ if(isset($_GET["action"]))
             <tr>
                 <td colspan="3" align="right">Total</td>
                 <td align="right">$ <?php echo number_format($total, 2); ?></td>
-                <td><button name="submit" name="add_to_mysql" type="submit" class="btn btn-store btn-block">Bestellung abschicken</button></p></td>
+                <td><input type="submit" name="add_to_mysql" style="margin-top:5px;" class="btn btn-success" value="Bestellung abgeben" /></td>
             </tr>
             <?php
             }
@@ -236,7 +217,21 @@ if(isset($_GET["action"]))
         </table>
     </div>
 </div>
-<br/>
+<br />
 
-</body>
+
+
+
+<script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="plugins/angular/angular.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script>
+
+<script type="text/javascript" src="js/hero-slider.js"></script>
+<script type="text/javascript" src="js/project-slider.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
 </html>
