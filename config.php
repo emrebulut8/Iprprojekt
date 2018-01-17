@@ -31,4 +31,7 @@ if(isset($_GET['login'])) {
         $errorMessage = "Username oder Passwort war ungültig!<br>";
     }
 }
+if(!isset($_SESSION['userid'])) {
+    ');
+}
 ?>

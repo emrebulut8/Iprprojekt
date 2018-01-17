@@ -1,17 +1,6 @@
 $(document).ready(function() {
 	
 
-   var waypoints = $('.anima').waypoint(function(direction) {
-        if(direction == 'down'){
-                $(this.element).addClass('in');    
-           } else {
-           }
-        }, {
-          offset: '80%'
-   });
-
-
-
 	function heroHeight() {
 		var $this = $('#hero'),
 		win = $(window),
@@ -47,16 +36,6 @@ $(document).ready(function() {
 
 
 	$('.carousel').carousel();
-	
-
-	$('#main-nav').singlePageNav({
-		offset: $('.navbar').height(),
-		speed: 750,
-		currentClass: 'active',
-		filter: ':not(.external)',
-		beforeStart: function() {},
-		onComplete: function() {}
-	});
 	
 
 	$('#modal-bar').affix({
