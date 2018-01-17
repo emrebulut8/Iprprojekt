@@ -18,7 +18,7 @@ if(isset($_POST["add_to_cart"]))
             $item_array = array(
                 'item_id'               =>     $_GET["id"],
                 'item_name'               =>     $_POST["hidden_name"],
-                'item_price'          =>     $_POST["hidden_price"],
+                'item_preis'          =>     $_POST["hidden_preis"],
                 'item_quantity'          =>     $_POST["quantity"]
             );
             $_SESSION["shopping_cart"][$count] = $item_array;
@@ -34,7 +34,7 @@ if(isset($_POST["add_to_cart"]))
         $item_array = array(
             'item_id'               =>     $_GET["id"],
             'item_name'               =>     $_POST["hidden_name"],
-            'item_price'          =>     $_POST["hidden_price"],
+            'item_preis'          =>     $_POST["hidden_preis"],
             'item_quantity'          =>     $_POST["quantity"]
         );
         $_SESSION["shopping_cart"][0] = $item_array;
@@ -192,8 +192,8 @@ if(isset($_GET["action"]))
             <tr>
                 <td><?php echo $values["item_name"]; ?></td>
                 <td><?php echo $values["item_quantity"]; ?></td>
-                <td>$ <?php echo $values["item_preis"]; ?></td>
-                <td>$ <?php echo number_format($values["item_quantity"] * $values["item_preis"], 2); ?></td>
+                <td><?php echo $values["item_preis"]; ?></td>
+                <td><?php echo number_format($values["item_quantity"] * $values["item_preis"], 2); ?></td>
                 <td><a href="Einkaufswagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
             </tr>
             <?php
