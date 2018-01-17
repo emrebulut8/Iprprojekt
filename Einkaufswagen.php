@@ -1,12 +1,13 @@
 <?php
 session_start();
+require_once __DIR__ . '/config.php';
 
 if(!isset($_SESSION['userid'])) {
   die('Bitte zuerst <a href="Login.php">einloggen</a>');
 }
 
 
-$connect = mysqli_connect("193.196.143.168", "mm7w_62fuch1bif", "bla12345", "mm7w_62fuch1bif");
+
 if(isset($_POST["add_to_cart"]))
 {
     if(isset($_SESSION["shopping_cart"]))
@@ -29,15 +30,25 @@ if(isset($_POST["add_to_cart"]))
             echo '<script>window.location="Einkaufswagen.php"</script>';
         }
     }
-    else
+}
+if(isset($_POST["add_to_mysql"]))
+{
+    if(isset($_SESSION["shopping_cart"]))
+
     {
-        $item_array = array(
-            'item_id'               =>     $_GET["id"],
-            'item_name'               =>     $_POST["hidden_name"],
-            'item_preis'          =>     $_POST["hidden_preis"],
-            'item_quantity'          =>     $_POST["quantity"]
-        );
-        $_SESSION["shopping_cart"][0] = $item_array;
+        $values[] = newrelic_add_custom_parameter();
+        foreach($_SESSION["shopping_cart"] as $keys => $count)
+        {
+            $id = mysqli_real_escape_string($connect, $value[0]);
+            $quanity = mysqli_real_escape_string($connect, $value[2]);
+            $values[] = "('$id', '$quanity')";
+        }
+        $bestellungsid = +1;
+        $sql = "INSERT INTO bestellungen (id, quantity ) VALUES ";
+        $sql .= implode(', ', $values[]);
+        mysqli_query($connect, $sql);
+
+
     }
 }
 if(isset($_GET["action"]))
@@ -211,7 +222,7 @@ if(isset($_GET["action"]))
             <tr>
                 <td colspan="3" align="right">Total</td>
                 <td align="right">$ <?php echo number_format($total, 2); ?></td>
-                <td></td>
+                <td><button name="submit" name="add_to_mysql" type="submit" class="btn btn-store btn-block">Bestellung abschicken</button></p></td>
             </tr>
             <?php
             }
