@@ -8,7 +8,7 @@ $host = '193.196.143.168';
 
 
 //DB connect
-$mysqli = new mysqli($host, $user, $password, $db);
+$connect = new mysqli($host, $user, $password, $db);
 
 if ($mysqli->connect_error) {
 die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);}
