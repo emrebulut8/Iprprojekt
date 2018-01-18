@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['userid'])) {
-  die('header("Location: Login.php")');
+  die('bitte zuerst <a href="Login.php">einlogen!</a>');
 }
 
 
@@ -25,7 +25,7 @@ if(isset($_POST["add_to_cart"]))
         }
         else
         {
-            echo '<script>alert("Item Already Added")</script>';
+            echo '<script>alert("Artikel bereits im Warenkorb")</script>';
             echo '<script>window.location="Einkaufswagen.php"</script>';
         }
     }
@@ -72,7 +72,7 @@ if(isset($_GET["action"]))
             if($values["item_id"] == $_GET["id"])
             {
                 unset($_SESSION["shopping_cart"][$keys]);
-                echo '<script>alert("Item Removed")</script>';
+                echo '<script>alert("Artikel gelöscht")</script>';
                 echo '<script>window.location="Einkaufswagen.php"</script>';
             }
         }
@@ -111,7 +111,6 @@ if(isset($_GET["action"]))
     <script type="text/javascript" src="js/hero-slider.js"></script>
     <script type="text/javascript" src="js/project-slider.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
 
 </head>
 
@@ -132,8 +131,8 @@ if(isset($_GET["action"]))
                 <li><a href= "Produkte.html " class="external"><i class="fa fa-coffee" aria-hidden="true"></i> Produkte</a></li>
                 <li><a href= "Einkaufswagen.php" class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
                 <li><a href= "Kontakt.php" class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
-                <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-                <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
+                <li><a href= "Login.php" class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                <li><a href= "UeberUns.html " class="external">ÜberUns</a></li>
 
             </ul>
         </div>
@@ -144,8 +143,7 @@ if(isset($_GET["action"]))
 <br/>
 <div class="container" >
     <br />
-    <h3 align="center">Einkaufswagen</h3><br />
-
+    <br />
     <?php
     $query = "SELECT * FROM produkte ORDER BY id ASC";
     $result = mysqli_query($connect, $query);
@@ -161,7 +159,7 @@ if(isset($_GET["action"]))
                         <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
                         <h4 class="text-info"><?php echo $row["name"]; ?></h4>
                         <h4 class="text-danger">$ <?php echo $row["preis"]; ?></h4>
-                        <input type="text" name="quantity" class="form-control" value="1" />
+                        <input type="text" name="quantity" title="anzahl" class="form-control" value="1" />
                         <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
                         <input type="hidden" name="hidden_preis" value="<?php echo $row["preis"]; ?>" />
                         <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
@@ -180,11 +178,11 @@ if(isset($_GET["action"]))
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
-                <th width="40%">Name</th>
+                <th width="40%">Artikel</th>
                 <th width="10%">Anzahl</th>
                 <th width="20%">Preis</th>
-                <th width="15%">Total</th>
-                <th width="5%">Aktion</th>
+                <th width="15%">Gesamt</th>
+                <th width="5%"> </th>
             </tr>
             <?php
             if(!empty($_SESSION["shopping_cart"]))
@@ -198,7 +196,7 @@ if(isset($_GET["action"]))
                 <td><?php echo $values["item_quantity"]; ?></td>
                 <td><?php echo $values["item_preis"]; ?></td>
                 <td><?php echo number_format($values["item_quantity"] * $values["item_preis"], 2); ?></td>
-                <td><a href="Einkaufswagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
+                <td><a href="Einkaufswagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">entfernen</span></a></td>
             </tr>
             <?php
             $total = $total + ($values["item_quantity"] * $values["item_preis"]);
@@ -218,18 +216,5 @@ if(isset($_GET["action"]))
 <br />
 
 
-
-
-<script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="plugins/angular/angular.min.js"></script>
-<script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script>
-
-<script type="text/javascript" src="js/hero-slider.js"></script>
-<script type="text/javascript" src="js/project-slider.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

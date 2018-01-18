@@ -55,10 +55,10 @@ function(){
         <div class="collapse navbar-collapse">
             <ul id="navigation" class="nav navbar-nav navbar-right text-center">
                 <li><a href= "Produkte.html " class="external"><i class="fa fa-coffee" aria-hidden="true"></i> Produkte</a></li>
-                <li><a href= "Einkaufswagen.php"class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
+                <li><a href= "Einkaufswagen.php" class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
                 <li><a href= "Kontakt.php" class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
-                <li><a href= "Login.php"class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-                <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
+                <li><a href= "Login.php" class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                <li><a href= "UeberUns.html " class="external">ÜberUns</a></li>
 
             </ul>
         </div>
@@ -73,7 +73,7 @@ function(){
         </header>
         <form action="index.html" method="post" novalidate id="contact-form">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 contact-info cta-message anima fade-right">
+                <div class="col-xs-12 col-sm-12 col-md-4 contact-info cta-message  fade-right">
                     <address>
                         <strong>Tassen</strong><br>
                         Schellingstr. 24, 70174 Stuttgart<br>
@@ -83,7 +83,7 @@ function(){
                     </address>
                 </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1" >
+                <div class="col-xs-12 col-sm-12 col-md-8  fade-up d1" >
                     <div class="form-group">
                         <label class="control-label" for="contact-name">Name</label>
                         <div class="controls">

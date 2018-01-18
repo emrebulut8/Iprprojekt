@@ -54,10 +54,11 @@ require_once __DIR__ . '/config.php';
         </div>
             <div class="collapse navbar-collapse">
                 <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-                     <li><a href= "Produkte.html "class="external"><i class="fa fa-coffee" aria-hidden="true"></i>Produkte</a></li>
-                     <li><a href= "Einkaufswagen.php"class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Einkaufswagen</a></li>
+                     <li><a href= "Produkte.html " class="external"><i class="fa fa-coffee" aria-hidden="true"></i> Produkte</a></li>
+                     <li><a href= "Einkaufswagen.php" class="external"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Einkaufswagen</a></li>
                      <li><a href= "Kontakt.php" class="external"><i class="fa fa-envelope-o" aria-hidden="true"></i> Kontakt</a></li>
-                     <li><a href= "UeberUns.html "class="external">ÜberUns</a></li>
+                     <li><a href= "logout.php" class="external"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a></li>
+                     <li><a href= "UeberUns.html " class="external">ÜberUns</a></li>
 
                 </ul>
              </div>
@@ -73,12 +74,12 @@ require_once __DIR__ . '/config.php';
                 <div class="panel-info text-center">Email</div>
                 <div class="input-group">
                     <span class="input-group-addon"><i></i></span>
-                     <input type="email" name="email" class="form-control" required autofocus maxlength="250"/>
+                        <input title="email" type="email" name="email" class="form-control" required autofocus maxlength="250"/>
                 </div>
                 <div class="panel-info text-center">Passwort</div>
                 <div class="input-group">
-                <span class="input-group-addon"><i></i></span>
-                <input type="password" name="password" class="form-control" required maxlength="250"/>
+                    <span class="input-group-addon"><i></i></span>
+                        <input title="password" type="password" name="password" class="form-control" required maxlength="250"/>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 controls">
