@@ -4,12 +4,7 @@ session_start();
 if(!isset($_SESSION['userid'])) {
   die('header("Location: Login.php")');
 }
-if(isset($_POST['kontakt'])){
 
-
-
-    echo "Danke für ihre Bestellung.";
-}
 
 $connect = mysqli_connect("193.196.143.168", "mm7w_62fuch1bif", "bla12345", "mm7w_62fuch1bif");
 if(isset($_POST["add_to_cart"]))
@@ -47,17 +42,17 @@ if(isset($_POST["add_to_cart"]))
 }
 if(isset($_POST["add_to_mysql"]))
 {
-    if(isset($_SESSION["shopping_cart"]))
-    {
+
 
         $orderid = 1;
         foreach($_SESSION["shopping_cart"] as $keys => $count)
         {
-            $id = mysqli_real_escape_string($connect, $_REQUEST['item_id']);
-            $quanity = mysqli_real_escape_string($connect, $_REQUEST['item_quanity']);
+            $orderid = 1;
+            $id = 'item_id';
+            $quanity = 'item_quanity';
 
-            $values[] = "('$orderid', $id', '$quanity')";
-            $sql = "INSERT INTO bestellungen (orderid, id, quantity ) VALUES ($orderid, $id, $quanity)";
+
+            $sql = "INSERT INTO bestellungen (orderid, id, quantity ) VALUES ('$orderid', '$id', '$quanity')";
 
             mysqli_query($connect, $sql);
 
@@ -66,7 +61,7 @@ if(isset($_POST["add_to_mysql"]))
         echo '<script>alert("Danke für ihre Bestellung!")</script>';
         echo '<script>window.location="Einkaufswagen.php"</script>';
 
-    }
+
 }
 if(isset($_GET["action"]))
 {
@@ -212,7 +207,7 @@ if(isset($_GET["action"]))
             <tr>
                 <td colspan="3" align="right">Total</td>
                 <td align="right">$ <?php echo number_format($total, 2); ?></td>
-                <td><button name="kontakt" type="submit" class="btn btn-store btn-block">bestellen</button></td>
+                <td><input type="submit" name="add_to_mysql" style="margin-top:5px;" class="btn btn-success" value="Bestellung abgeben" /></td>
             </tr>
             <?php
             }
@@ -235,5 +230,6 @@ if(isset($_GET["action"]))
 <script type="text/javascript" src="js/hero-slider.js"></script>
 <script type="text/javascript" src="js/project-slider.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

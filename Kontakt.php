@@ -5,7 +5,9 @@ if(isset($_POST['sent'])){
 
     echo "Danke für ihre Meinung.";
 }
-
+function(){
+    echo "Danke für ihre Meinung.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -101,8 +103,8 @@ if(isset($_POST['sent'])){
                         </div>
                     </div>
                     <p>
-                        <button name="sent" type="submit" class="btn btn-store btn-block">Nachricht Senden</button></p>
-                    <input type="hidden" name="submitted" id="submitted3" value="true">
+                        <button name="sent" type="submit" onlick="function()" class="btn btn-store btn-block">Nachricht Senden</button></p>
+
                 </div>
             </div>
         </form>
